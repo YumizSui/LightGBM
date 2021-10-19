@@ -885,6 +885,16 @@ struct Config {
   // desc = set this to ``false`` to enforce the original lambdarank algorithm
   bool lambdarank_norm = true;
 
+  // check = >0
+  // desc = used only in ``lambdarank2pp`` application
+  // desc = Coefficient for rho_ij used in lambdaloss2pp `Lambdaloss paper <https://research.google/pubs/pub47258/>`__
+  double lambdaloss2pp_rho = 1.0;
+
+  // check = >0
+  // desc = used only in ``lambdarank2pp`` application
+  // desc = Coefficient for delta_ij used in lambdaloss2pp `Lambdaloss paper <https://research.google/pubs/pub47258/>`__
+  double lambdaloss2pp_delta = 10.0;
+
   // type = multi-double
   // default = 0,1,3,7,15,31,63,...,2^30-1
   // desc = used only in ``lambdarank`` application

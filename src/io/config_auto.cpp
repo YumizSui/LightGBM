@@ -287,6 +287,8 @@ const std::unordered_set<std::string>& Config::parameter_set() {
   "tweedie_variance_power",
   "lambdarank_truncation_level",
   "lambdarank_norm",
+  "lambdaloss2pp_rho",
+  "lambdaloss2pp_delta",
   "label_gain",
   "metric",
   "metric_freq",
@@ -589,6 +591,12 @@ void Config::GetMembersFromString(const std::unordered_map<std::string, std::str
 
   GetBool(params, "lambdarank_norm", &lambdarank_norm);
 
+  GetDouble(params, "lambdaloss2pp_rho", &lambdaloss2pp_rho);
+  CHECK_GT(lambdaloss2pp_rho, 0.0);
+
+  GetDouble(params, "lambdaloss2pp_delta", &lambdaloss2pp_delta);
+  CHECK_GT(lambdaloss2pp_delta, 0.0);
+
   if (GetString(params, "label_gain", &tmp_str)) {
     label_gain = Common::StringToArray<double>(tmp_str, ',');
   }
@@ -726,6 +734,8 @@ std::string Config::SaveMembersToString() const {
   str_buf << "[tweedie_variance_power: " << tweedie_variance_power << "]\n";
   str_buf << "[lambdarank_truncation_level: " << lambdarank_truncation_level << "]\n";
   str_buf << "[lambdarank_norm: " << lambdarank_norm << "]\n";
+  str_buf << "[lambdaloss2pp_rho: " << lambdaloss2pp_rho << "]\n";
+  str_buf << "[lambdaloss2pp_delta: " << lambdaloss2pp_delta << "]\n";
   str_buf << "[label_gain: " << Common::Join(label_gain, ",") << "]\n";
   str_buf << "[eval_at: " << Common::Join(eval_at, ",") << "]\n";
   str_buf << "[multi_error_top_k: " << multi_error_top_k << "]\n";
