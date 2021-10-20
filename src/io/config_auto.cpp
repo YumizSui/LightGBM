@@ -592,10 +592,10 @@ void Config::GetMembersFromString(const std::unordered_map<std::string, std::str
   GetBool(params, "lambdarank_norm", &lambdarank_norm);
 
   GetDouble(params, "lambdaloss2pp_rho", &lambdaloss2pp_rho);
-  CHECK_GT(lambdaloss2pp_rho, 0.0);
+  CHECK_GE(lambdaloss2pp_rho, 0.0);
 
   GetDouble(params, "lambdaloss2pp_delta", &lambdaloss2pp_delta);
-  CHECK_GT(lambdaloss2pp_delta, 0.0);
+  CHECK_GE(lambdaloss2pp_delta, 0.0);
 
   if (GetString(params, "label_gain", &tmp_str)) {
     label_gain = Common::StringToArray<double>(tmp_str, ',');
