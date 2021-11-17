@@ -33,6 +33,8 @@ ObjectiveFunction* ObjectiveFunction::CreateObjectiveFunction(const std::string&
     return new RankXENDCG(config);
   } else if (type == std::string("lambdaloss2pp")) {
     return new LambdaLossNDCG2pp(config);
+  } else if (type == std::string("rank_acg")) {
+    return new RankACG(config);
   } else if (type == std::string("multiclass")) {
     return new MulticlassSoftmax(config);
   } else if (type == std::string("multiclassova")) {
@@ -77,6 +79,8 @@ ObjectiveFunction* ObjectiveFunction::CreateObjectiveFunction(const std::string&
     return new RankXENDCG(strs);
   } else if (type == std::string("lambdaloss2pp")) {
     return new LambdaLossNDCG2pp(strs);
+  } else if (type == std::string("rank_acg")) {
+    return new RankACG(strs);
   } else if (type == std::string("multiclass")) {
     return new MulticlassSoftmax(strs);
   } else if (type == std::string("multiclassova")) {
