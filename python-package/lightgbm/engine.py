@@ -375,7 +375,7 @@ def _make_n_folds(full_data, folds, nfold, params, seed, fpreproc=None, stratifi
             folds = folds.split(X=np.empty(num_data), y=full_data.get_label(), groups=flatted_group)
     else:
         if any(params.get(obj_alias, "") in {"lambdarank", "rank_xendcg", "xendcg",
-                                             "xe_ndcg", "xe_ndcg_mart", "xendcg_mart", "lambdaloss2pp", "rank_acg", "rank_adcg"}
+                                             "xe_ndcg", "xe_ndcg_mart", "xendcg_mart", "lambdaloss2pp", "rank_acg", "rank_adcg", "rank_nedcg"}
                for obj_alias in _ConfigAliases.get("objective")):
             if not SKLEARN_INSTALLED:
                 raise LightGBMError('scikit-learn is required for ranking cv')

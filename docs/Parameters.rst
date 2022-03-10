@@ -73,7 +73,7 @@ Core Parameters
 
    -  **Note**: can be used only in CLI version; for language-specific packages you can use the correspondent functions
 
--  ``objective`` :raw-html:`<a id="objective" title="Permalink to this parameter" href="#objective">&#x1F517;&#xFE0E;</a>`, default = ``regression``, type = enum, options: ``regression``, ``regression_l1``, ``huber``, ``fair``, ``poisson``, ``quantile``, ``mape``, ``gamma``, ``tweedie``, ``binary``, ``multiclass``, ``multiclassova``, ``cross_entropy``, ``cross_entropy_lambda``, ``lambdarank``, ``rank_xendcg``, ``lambdaloss2pp``, ``rank_acg``, ``rank_adcg``, aliases: ``objective_type``, ``app``, ``application``
+-  ``objective`` :raw-html:`<a id="objective" title="Permalink to this parameter" href="#objective">&#x1F517;&#xFE0E;</a>`, default = ``regression``, type = enum, options: ``regression``, ``regression_l1``, ``huber``, ``fair``, ``poisson``, ``quantile``, ``mape``, ``gamma``, ``tweedie``, ``binary``, ``multiclass``, ``multiclassova``, ``cross_entropy``, ``cross_entropy_lambda``, ``lambdarank``, ``rank_xendcg``, ``lambdaloss2pp``, ``rank_acg``, ``rank_adcg``, ``rank_nedcg``, aliases: ``objective_type``, ``app``, ``application``
 
    -  regression application
 
@@ -130,6 +130,8 @@ Core Parameters
       -  ``rank_acg`` Average cumulative gain driven loss function using lambdaloss framework
 
       -  ``rank_adcg`` Normalized Discounted Average cumulative gain driven loss function using lambdaloss framework
+
+      -  ``rank_nedcg`` Normalized Enrichment Discounted  cumulative gain driven loss function using lambdaloss framework
 
       -  label should be ``int`` type, and larger number represents the higher relevance (e.g. 0:bad, 1:fair, 2:good, 3:perfect)
 
@@ -1102,7 +1104,7 @@ Metric Parameters
 
       -  ``tweedie``, negative log-likelihood for **Tweedie** regression
 
-      -  ``ndcg``, `NDCG <https://en.wikipedia.org/wiki/Discounted_cumulative_gain#Normalized_DCG>`__, aliases: ``lambdarank``, ``rank_xendcg``, ``xendcg``, ``xe_ndcg``, ``xe_ndcg_mart``, ``xendcg_mart``, ``lambdaloss2pp``, ``rank_acg``, ``rank_adcg``
+      -  ``ndcg``, `NDCG <https://en.wikipedia.org/wiki/Discounted_cumulative_gain#Normalized_DCG>`__, aliases: ``lambdarank``, ``rank_xendcg``, ``xendcg``, ``xe_ndcg``, ``xe_ndcg_mart``, ``xendcg_mart``, ``lambdaloss2pp``, ``rank_acg``, ``rank_adcg``, ``rank_nedcg``
 
       -  ``map``, `MAP <https://makarandtapaswi.wordpress.com/2012/07/02/intuition-behind-average-precision-and-map/>`__, aliases: ``mean_average_precision``
 

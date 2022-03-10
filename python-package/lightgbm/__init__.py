@@ -22,6 +22,7 @@ try:
 except ImportError:
     pass
 
+print("ver lambdaloss 10/20")
 
 _version_path = Path(__file__).absolute().parent / 'VERSION.txt'
 if _version_path.is_file():
