@@ -81,24 +81,11 @@ double DCGCalculator::CalRandomDCGAtK(data_size_t k, const label_t* label, data_
   // counts for all labels
   std::vector<data_size_t> label_cnt(label_gain_.size(), 0);
   for (data_size_t i = 0; i < num_data; ++i) {
-    ++label_cnt[static_cast<int>(label[i])];
+    mean_dcg += label_gain_[static_cast<int>(label[i])];
   }
-  int top_label = static_cast<int>(label_gain_.size()) - 1;
+  mean_dcg /= static_cast<double>(num_data);
 
   if (k > num_data) { k = num_data; }
-  //  start from top label, and accumulate DCG
-  for (data_size_t j = 0; j < k; ++j) {
-    while (top_label > 0 && label_cnt[top_label] <= 0) {
-      top_label -= 1;
-    }
-    if (top_label < 0) {
-      break;
-    }
-    mean_dcg += label_gain_[top_label];
-    label_cnt[top_label] -= 1;
-  }
-
-  mean_dcg /= static_cast<double>(k);
   
   for (data_size_t j = 0; j < k; ++j) {
     ret += discount_[j] * mean_dcg;
